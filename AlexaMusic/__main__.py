@@ -6,7 +6,7 @@
 # Rocks © @Shayri_Music_Lovers
 # Owner Asad Ali 
 # Harshit Sharma
-# All rights reserved. © Alisha © Alexa © Yukki
+# All rights reserved. © Alisha © Alexa © Alexa
 
 
 
@@ -24,7 +24,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 import config
 from config import BANNED_USERS
 from AlexaMusic import LOGGER, app, userbot
-from AlexaMusic.core.call import Yukki
+from AlexaMusic.core.call import Alexa
 from AlexaMusic.plugins import ALL_MODULES
 from AlexaMusic.utils.database import get_banned_users, get_gbanned
 
@@ -66,9 +66,9 @@ async def init():
         "Necessary Modules Imported Successfully."
     )
     await userbot.start()
-    await Yukki.start()
+    await Alexa.start()
     try:
-        await Yukki.stream_call(
+        await Alexa.stream_call(
             "https://telegra.ph/file/162cdb7ebf049ec086bae.mp4"
         )
     except NoActiveGroupCall:
@@ -78,7 +78,7 @@ async def init():
         sys.exit()
     except:
         pass
-    await Yukki.decorators()
+    await Alexa.decorators()
     LOGGER("AlexaMusic").info("Music Bot Started Successfully, Now Gib Party to @cute_boy701")
     await idle()
 
