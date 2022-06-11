@@ -28,7 +28,7 @@ from AlexaMusic.utils.decorators.language import language, languageCB
 from AlexaMusic.utils.inline.playlist import (botplaylist_markup,
                                               get_playlist_markup,
                                               warning_markup)
-from AlexaMusic.utils.pastebin import Asadbin
+from AlexaMusic.utils.pastebin import Alexabin
 from AlexaMusic.utils.stream.stream import stream
 
 # Command
