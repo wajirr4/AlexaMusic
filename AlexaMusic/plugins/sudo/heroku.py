@@ -33,7 +33,7 @@ from AlexaMusic.utils.database import (get_active_chats,
                                        remove_active_chat,
                                        remove_active_video_chat)
 from AlexaMusic.utils.decorators.language import language
-from AlexaMusic.utils.pastebin import Asadbin
+from AlexaMusic.utils.pastebin import Alexabin
 
 # Commands
 GETLOG_COMMAND = get_command("GETLOG_COMMAND")
@@ -59,7 +59,7 @@ async def log_(client, message, _):
             if HAPP is None:
                 return await message.reply_text(_["heroku_1"])
             data = HAPP.get_log()
-            link = await Asadbin(data)
+            link = await Alexabin(data)
             return await message.reply_text(link)
         else:
             if os.path.exists(config.LOG_FILE_NAME):
@@ -72,7 +72,7 @@ async def log_(client, message, _):
                     NUMB = 100
                 for x in lines[-NUMB:]:
                     data += x
-                link = await Asadbin(data)
+                link = await Alexabin(data)
                 return await message.reply_text(link)
             else:
                 return await message.reply_text(_["heroku_2"])
@@ -268,7 +268,7 @@ async def update_(client, message, _):
     _update_response_ = "<b>ᴀ ɴᴇᴡ ᴜᴩᴅᴀᴛᴇ ɪs ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛʜᴇ ʙᴏᴛ !</b>\n\n➣ ᴩᴜsʜɪɴɢ ᴜᴩᴅᴀᴛᴇs ɴᴏᴡ</code>\n\n**<u>ᴜᴩᴅᴀᴛᴇs:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
-        url = await Asadbin(updates)
+        url = await Alexabin(updates)
         nrs = await response.edit(
             f"<b>ᴀ ɴᴇᴡ ᴜᴩᴅᴀᴛᴇ ɪs ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛʜᴇ ʙᴏᴛ !</b>\n\n➣ ᴩᴜsʜɪɴɢ ᴜᴩᴅᴀᴛᴇs ɴᴏᴡ</code>\n\n**<u>ᴜᴩᴅᴀᴛᴇs:</u>**\n\n[ᴄʜᴇᴄᴋ ᴜᴩᴅᴀᴛᴇs]({url})"
         )
