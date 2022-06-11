@@ -18,7 +18,7 @@ from pyrogram.types import InlineKeyboardMarkup
 
 import config
 from AlexaMusic import Carbon, YouTube, app
-from AlexaMusic.core.call import Yukki
+from AlexaMusic.core.call import Alexa
 from AlexaMusic.misc import db
 from AlexaMusic.utils.database import (add_active_chat,
                                        add_active_video_chat,
@@ -28,7 +28,7 @@ from AlexaMusic.utils.exceptions import AssistantErr
 from AlexaMusic.utils.inline.play import (stream_markup,
                                           telegram_markup)
 from AlexaMusic.utils.inline.playlist import close_markup
-from AlexaMusic.utils.pastebin import Yukkibin
+from AlexaMusic.utils.pastebin import Alexabin
 from AlexaMusic.utils.stream.queue import put_queue, put_queue_index
 from AlexaMusic.utils.thumbnails import gen_thumb
 
@@ -52,7 +52,7 @@ async def stream(
         if not await is_video_allowed(chat_id):
             raise AssistantErr(_["play_7"])
     if forceplay:
-        await Yukki.force_stop_stream(chat_id)
+        await Alexa.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['playlist_16']}\n\n"
         count = 0
@@ -101,7 +101,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_16"])
-                await Yukki.join_call(
+                await Alexa.join_call(
                     chat_id, original_chat_id, file_path, video=status
                 )
                 await put_queue(
@@ -132,7 +132,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await Yukkibin(msg)
+            link = await Alexabin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -182,7 +182,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Yukki.join_call(
+            await Alexa.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -236,7 +236,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Yukki.join_call(
+            await Alexa.join_call(
                 chat_id, original_chat_id, file_path, video=None
             )
             await put_queue(
@@ -290,7 +290,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Yukki.join_call(
+            await Alexa.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -351,7 +351,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Yukki.join_call(
+            await Alexa.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -403,7 +403,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Yukki.join_call(
+            await Alexa.join_call(
                 chat_id,
                 original_chat_id,
                 link,
