@@ -6,7 +6,7 @@
 # Rocks © @Shayri_Music_Lovers
 # Owner Asad Ali 
 # Harshit Sharma
-# All rights reserved. © Alisha © Alexa © Yukki
+# All rights reserved. © Alisha © Alexa
 
 
 
@@ -18,7 +18,7 @@ from pyrogram.types import CallbackQuery, Message
 from config import BANNED_USERS, MUSIC_BOT_NAME, adminlist, lyrical
 from strings import get_command
 from AlexaMusic import app
-from AlexaMusic.core.call import Yukki
+from AlexaMusic.core.call import Alexa
 from AlexaMusic.misc import db
 from AlexaMusic.utils.database import get_authuser_names, get_cmode
 from AlexaMusic.utils.decorators import (ActualAdminCB, AdminActual,
@@ -72,7 +72,7 @@ async def restartbot(client, message: Message, _):
     await asyncio.sleep(1)
     try:
         db[message.chat.id] = []
-        await Yukki.stop_stream(message.chat.id)
+        await Alexa.stop_stream(message.chat.id)
     except:
         pass
     chat_id = await get_cmode(message.chat.id)
@@ -83,7 +83,7 @@ async def restartbot(client, message: Message, _):
             pass
         try:
             db[chat_id] = []
-            await Yukki.stop_stream(chat_id)
+            await Alexa.stop_stream(chat_id)
         except:
             pass
     return await mystic.edit_text(
