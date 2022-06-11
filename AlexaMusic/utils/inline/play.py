@@ -1,16 +1,3 @@
-#
-# Copyright (C) 2021-2022 by Alexa_Help@Github, < https://github.com/Jankarikiduniya >.
-# A Powerful Music Bot Property Of Rocks Indian Largest Chatting Group
-
-# Kanged By © @Dr_Asad_Ali
-# Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
-# Harshit Sharma
-# All rights reserved. © Alisha © Alexa © Yukki
-
-
-
-
 from pyrogram.types import InlineKeyboardButton
 from config import SUPPORT_GROUP, SUPPORT_CHANNEL
 
@@ -61,7 +48,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="๏ ᴍʀ ᴠᴇɴᴏᴍ ๏", url=f"https://t.me/Venom_Hai_Hum")
+                text="🤴 ᴏᴡɴᴇʀ 🤴", url=f"https://t.me/Dr_Assad_Ali")
         ],
         [
             InlineKeyboardButton(
@@ -69,9 +56,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"PanelMarkup {videoid}|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["S_B_3"],
-                url=f"{SUPPORT_CHANNEL}",
-            )
+                text="𓆩☞︎︎︎𝐀𝐥𝐞𝐱𝐚♕𝐂𝐡𝐚𝐭☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
         ],
     ]
     return buttons
@@ -104,7 +89,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="๏ ᴍʀ ᴠᴇɴᴏᴍ ๏", url=f"https://t.me/Venom_Hai_Hum")
+                text="🤴 ᴏᴡɴᴇʀ 🤴", url=f"https://t.me/Dr_Assad_Ali")
         ],
         [
             InlineKeyboardButton(
@@ -112,9 +97,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["S_B_3"],
-                url=f"{SUPPORT_CHANNEL}",
-            ),
+                text="𓆩☞︎︎︎𝐀𝐥𝐞𝐱𝐚♕𝐂𝐡𝐚𝐭☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
         ],
     ]
     return buttons
@@ -131,7 +114,7 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="๏ ᴍʀ ᴠᴇɴᴏᴍ ๏", url=f"https://t.me/Venom_Hai_Hum")
+                text="🤴 ᴏᴡɴᴇʀ 🤴", url=f"https://t.me/Dr_Assad_Ali")
         ],
         [
             InlineKeyboardButton(
@@ -139,9 +122,7 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["S_B_3"],
-                url=f"{SUPPORT_CHANNEL}",
-            )
+                text="𓆩☞︎︎︎𝐀𝐥𝐞𝐱𝐚♕𝐂𝐡𝐚𝐭☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
         ],
     ]
     return buttons
@@ -155,7 +136,7 @@ def telegram_markup(_, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], url=f"https://t.me/Alexa_Help"
+                text=_["CLOSEMENU_BUTTON"], callback_data="close"
             ),
         ],
     ]
@@ -180,7 +161,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
         [
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
-                url=f"https://t.me/Shayri_Music_Lovers",
+                callback_data=f"forceclose {videoid}|{user_id}",
             )
         ],
     ]
@@ -206,7 +187,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
             ),
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
-                url=f"https://t.me/Shayri_Music_Lovers",
+                callback_data=f"forceclose {videoid}|{user_id}",
             ),
         ],
     ]
@@ -231,7 +212,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
             ),
             InlineKeyboardButton(
                 text=_["CLOSEMENU_BUTTON"],
-                url=f"https://t.me/Alexa_Help",
+                callback_data=f"forceclose {videoid}|{user_id}",
             ),
         ]
     ]
@@ -263,7 +244,7 @@ def slider_markup(
             ),
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
-                url=f"https://t.me/Shayri_Music_Lovers",
+                callback_data=f"forceclose {query}|{user_id}",
             ),
             InlineKeyboardButton(
                 text="▷",
