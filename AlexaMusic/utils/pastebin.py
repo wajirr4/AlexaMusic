@@ -25,7 +25,7 @@ async def post(url: str, *args, **kwargs):
         return data
 
 
-async def Asadbin(text):
+async def Alexabin(text):
     resp = await post(f"{BASE}api/v2/paste", data=text)
     if not resp["success"]:
         return
