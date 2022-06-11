@@ -19,4 +19,5 @@ services:
       UPSTREAM_REPO: $UPSTREAM_REPO  # true
       UPSTREAM_BRANCH: $UPSTREAM_BRANCH  # true
       STRING_SESSION: $STRING_SESSION # true
+      STRING2: $STRING_SESSION2 # true
       SUDO_USERS: $SUDO_USERS #false
