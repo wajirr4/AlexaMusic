@@ -6,7 +6,7 @@
 # Rocks © @Shayri_Music_Lovers
 # Owner Asad Ali 
 # Harshit Sharma
-# All rights reserved. © Alisha © Alexa © Yukki
+# All rights reserved. © Alisha © Alexa
 
 
 
@@ -23,7 +23,7 @@ from config import BANNED_USERS
 from strings import get_command
 from AlexaMusic import app
 from AlexaMusic.misc import db
-from AlexaMusic.utils import (Yukkibin, get_channeplayCB,
+from AlexaMusic.utils import (Alexabin, get_channeplayCB,
                               seconds_to_min)
 from AlexaMusic.utils.database import (get_cmode, is_active_chat,
                                        is_music_playing)
@@ -219,7 +219,7 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
             )
         if "📌" in msg:
             msg = msg.replace("📌", "")
-        link = await Yukkibin(msg)
+        link = await Alexabin(msg)
         med = InputMediaPhoto(
             media=link, caption=_["queue_3"].format(link)
         )
