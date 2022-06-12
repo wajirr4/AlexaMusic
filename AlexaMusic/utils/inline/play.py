@@ -56,7 +56,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"PanelMarkup {videoid}|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="𓆩☞︎︎︎𝐀𝐥𝐞𝐱𝐚♕𝐂𝐡𝐚𝐭☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
+                text="𓆩☞︎︎︎ ᴄʜᴀᴛ ☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
         ],
     ]
     return buttons
@@ -97,7 +97,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="𓆩☞︎︎︎𝐀𝐥𝐞𝐱𝐚♕𝐂𝐡𝐚𝐭☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
+                text="𓆩☞︎︎︎ ᴄʜᴀᴛ ☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
         ],
     ]
     return buttons
@@ -122,7 +122,7 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="𓆩☞︎︎︎𝐀𝐥𝐞𝐱𝐚♕𝐂𝐡𝐚𝐭☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
+                text="𓆩☞︎︎︎ ᴄʜᴀᴛ ☜︎︎︎️𓆪", url=f"https://t.me/Alexa_Help")
         ],
     ]
     return buttons
