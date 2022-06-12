@@ -48,7 +48,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="🤴 ᴏᴡɴᴇʀ 🤴", url=f"https://t.me/Dr_Assad_Ali")
+                text="♡︎ ᴏᴡɴᴇʀ ♡︎", url=f"https://t.me/Dr_Assad_Ali")
         ],
         [
             InlineKeyboardButton(
@@ -89,7 +89,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="🤴 ᴏᴡɴᴇʀ 🤴", url=f"https://t.me/Dr_Assad_Ali")
+                text="♡︎ ᴏᴡɴᴇʀ ♡︎", url=f"https://t.me/Dr_Assad_Ali")
         ],
         [
             InlineKeyboardButton(
@@ -114,7 +114,7 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="🤴 ᴏᴡɴᴇʀ 🤴", url=f"https://t.me/Dr_Assad_Ali")
+                text="♡︎ ᴏᴡɴᴇʀ ♡︎", url=f"https://t.me/Dr_Assad_Ali")
         ],
         [
             InlineKeyboardButton(
