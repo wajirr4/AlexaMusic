@@ -45,6 +45,8 @@ OWNER_ID = list(
 
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
+BOT_ID = getenv("BOT_ID")
+
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
 UPSTREAM_REPO = getenv(
