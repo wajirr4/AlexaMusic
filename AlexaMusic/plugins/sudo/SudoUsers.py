@@ -25,7 +25,7 @@ from AlexaMusic.utils.database import (add_gban_user, get_served_chats, get_sudo
 ## Gban Module
 
 
-@app.on_message(filters.command("gban") & filters.user(SUDOERS))
+@app.on_message(filters.command("gban")  & SUDOERS)
 async def ban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) < 2:
@@ -40,8 +40,6 @@ async def ban_globally(_, message):
             return await message.reply_text(
                 "You want to gban yourself? How Fool!"
             )
-        elif user.id == BOT_ID:
-            await message.reply_text("Should i block myself? Lmao Ded!")
         elif user.id in SUDOERS:
             await message.reply_text("You want to block a sudo user? KIDXZ")
         else:
@@ -87,8 +85,6 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
     sudoers = await get_sudoers()
     if user_id == from_user_id:
         await message.reply_text("You want to block yourself? How Fool!")
-    elif user_id == BOT_ID:
-        await message.reply_text("Should i block myself? Lmao Ded!")
     elif user_id in sudoers:
         await message.reply_text("You want to block a sudo user? KIDXZ")
     else:
@@ -132,8 +128,8 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
             )
             return
 
-
-@app.on_message(filters.command("ungban") & filters.user(SUDOERS))
+          
+@app.on_message(filters.command("ungban") & SUDOERS)
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -149,8 +145,6 @@ async def unban_globally(_, message):
         sudoers = await get_sudoers()
         if user.id == from_user.id:
             await message.reply_text("You want to unblock yourself?")
-        elif user.id == BOT_ID:
-            await message.reply_text("Should i unblock myself?")
         elif user.id in sudoers:
             await message.reply_text("Sudo users can't be blocked/unblocked.")
         else:
@@ -167,10 +161,6 @@ async def unban_globally(_, message):
     sudoers = await get_sudoers()
     if user_id == from_user_id:
         await message.reply_text("You want to unblock yourself?")
-    elif user_id == BOT_ID:
-        await message.reply_text(
-            "Should i unblock myself? But i'm not blocked."
-        )
     elif user_id in sudoers:
         await message.reply_text("Sudo users can't be blocked/unblocked.")
     else:
@@ -185,7 +175,7 @@ async def unban_globally(_, message):
 # Broadcast Message
 
 
-@app.on_message(filters.command("broadcast_pin") & filters.user(SUDOERS))
+@app.on_message(filters.command("broadcast_pin") & SUDOERS)
 async def broadcast_message_pin_silent(_, message):
     if not message.reply_to_message:
         pass
@@ -243,7 +233,7 @@ async def broadcast_message_pin_silent(_, message):
     )
 
 
-@app.on_message(filters.command("broadcast_pin_loud") & filters.user(SUDOERS))
+@app.on_message(filters.command("broadcast_pin_loud") & SUDOERS)
 async def broadcast_message_pin_loud(_, message):
     if not message.reply_to_message:
         pass
@@ -301,7 +291,7 @@ async def broadcast_message_pin_loud(_, message):
     )
 
 
-@app.on_message(filters.command("broadcast") & filters.user(SUDOERS))
+@app.on_message(filters.command("broadcast") & SUDOERS)
 async def broadcast(_, message):
     if not message.reply_to_message:
         pass
@@ -346,7 +336,7 @@ async def broadcast(_, message):
 # Clean
 
 
-@app.on_message(filters.command("clean") & filters.user(SUDOERS))
+@app.on_message(filters.command("clean") & SUDOERS)
 async def clean(_, message):
     dir = "downloads"
     dir1 = "cache"
