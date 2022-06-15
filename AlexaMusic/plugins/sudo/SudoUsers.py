@@ -15,7 +15,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
 
-from config import BOT_ID, BOT_USERNAME, MUSIC_BOT_NAME, OWNER_ID, SUDOERS, app
+from config import BOT_ID, MUSIC_BOT_NAME, OWNER_ID, SUDOERS, app
 from AlexaMusic.utils.database import (add_gban_user, get_served_chats, get_sudoers,
                             is_gbanned_user, remove_gban_user)
 
