@@ -79,7 +79,7 @@ async def init():
     except:
         pass
     await Alexa.decorators()
-    LOGGER("AlexaMusic").info("Music Bot Started Successfully, Now Gib Party to @cute_boy701")
+    LOGGER("AlexaMusic").info("Music Bot Started Successfully ❣️")
     await idle()
 
 
