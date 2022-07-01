@@ -306,9 +306,3 @@ if TELEGRAM_VIDEO_URL:
                 "[ERROR] - Your TELEGRAM_VIDEO_URL url is wrong. Please ensure that it starts with https://"
             )
             sys.exit()
-
-
-if not MUSIC_BOT_NAME.isascii():
-    print(
-        "[ERROR] - Use any special characters or Special font for MUSIC_BOT_NAME var ab bot ko jhaat kuch farak ni padega."
-    )
