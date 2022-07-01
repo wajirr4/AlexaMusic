@@ -42,14 +42,6 @@ async def init():
         LOGGER("AlexaMusic").error(
             "WTF Baby ! Atleast add a pyrogram string, How Cheap..."
         )
-        return
-    if (
-        not config.SPOTIFY_CLIENT_ID
-        and not config.SPOTIFY_CLIENT_SECRET
-    ):
-        LOGGER("AlexaMusic").warning(
-            "Spotify Client Id & Secret not added so your bot won't be able to play spotify tracks and playlists, Chutiya Saala ek itni simple cheej nahi laa paaya."
-        )
     try:
         users = await get_gbanned()
         for user_id in users:
