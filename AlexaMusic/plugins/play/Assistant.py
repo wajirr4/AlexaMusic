@@ -61,7 +61,7 @@ async def awaiting_message(client, message):
         )
         return await client.block_user(user_id)
     await message.reply_text(
-        f"✪ **ʜᴇʟʟᴏ, ɪ ᴀᴍ** {MUSIC_BOT_NAME}'s ᴀssɪsᴛᴀɴᴛ.\n\n**ɪ ᴀᴍ ᴏɴʟʏ ᴀssɪsᴛᴀɴᴛ ᴅᴏ ɴᴏᴛ sᴘᴀᴍ ʜᴇʀᴇ ᴏᴛʜᴇʀᴡɪsᴇ ɪ ʜᴀᴠᴇ ʀɪɢʜᴛs ᴛᴏ ʙʟᴏᴄᴋ ʏᴏᴜ** 😔🥰.\n**ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴇᴘʟᴏʏ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ ᴏʀ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ ᴛʜᴇɴ ᴊᴏɪɴ** @Alexa_Help"
+        f"✪ **ʜᴇʟʟᴏ, ɪ ᴀᴍ** {MUSIC_BOT_NAME}'s ᴀssɪsᴛᴀɴᴛ.\n\n✪ **ɪ ᴀᴍ ᴏɴʟʏ ᴀssɪsᴛᴀɴᴛ ᴅᴏ ɴᴏᴛ sᴘᴀᴍ ʜᴇʀᴇ ᴏᴛʜᴇʀᴡɪsᴇ ɪ ʜᴀᴠᴇ ʀɪɢʜᴛs ᴛᴏ ʙʟᴏᴄᴋ ʏᴏᴜ** 😔🥰.\n**✪ ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴇᴘʟᴏʏ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ ᴏʀ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ ᴛʜᴇɴ ᴊᴏɪɴ** @Alexa_Help"
     )
 
 
