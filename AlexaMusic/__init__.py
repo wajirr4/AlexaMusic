@@ -11,7 +11,7 @@
 
 
 
-from AlexaMusic.core.bot import YukkiBot
+from AlexaMusic.core.bot import AlexaBot
 from AlexaMusic.core.dir import dirr
 from AlexaMusic.core.git import git
 from AlexaMusic.core.userbot import Userbot
@@ -35,7 +35,7 @@ heroku()
 sudo()
 
 # Bot Client
-app = YukkiBot()
+app = AlexaBot()
 
 # Assistant Client
 userbot = Userbot()
