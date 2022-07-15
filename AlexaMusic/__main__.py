@@ -4,14 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Alexa
-
-
-
-
-
 
 
 import asyncio
@@ -54,15 +49,11 @@ async def init():
     await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module("AlexaMusic.plugins" + all_module)
-    LOGGER("AlexaMusic.plugins").info(
-        "Necessary Modules Imported Successfully."
-    )
+    LOGGER("AlexaMusic.plugins").info("Necessary Modules Imported Successfully.")
     await userbot.start()
     await Alexa.start()
     try:
-        await Alexa.stream_call(
-            "https://telegra.ph/file/162cdb7ebf049ec086bae.mp4"
-        )
+        await Alexa.stream_call("https://telegra.ph/file/162cdb7ebf049ec086bae.mp4")
     except NoActiveGroupCall:
         LOGGER("AlexaMusic").error(
             "[ERROR] - \n\nHey Baby, firstly open telegram and turn on voice chat in Logger Group else fu*k off. If you ever ended voice chat in log group i will stop working and users will fu*k you up."

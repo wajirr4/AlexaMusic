@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 import asyncio
@@ -19,10 +17,12 @@ import config
 from config import clean
 from strings import get_string
 from AlexaMusic import app
-from AlexaMusic.utils.database import (get_lang,
-                                       get_private_served_chats,
-                                       get_served_chats,
-                                       is_suggestion)
+from AlexaMusic.utils.database import (
+    get_lang,
+    get_private_served_chats,
+    get_served_chats,
+    is_suggestion,
+)
 
 LEAVE_TIME = config.AUTO_SUGGESTION_TIME
 
@@ -78,9 +78,7 @@ async def dont_do_this():
                         put = {
                             "msg_id": sent.message_id,
                             "timer_after": time_now
-                            + timedelta(
-                                minutes=config.CLEANMODE_DELETE_MINS
-                            ),
+                            + timedelta(minutes=config.CLEANMODE_DELETE_MINS),
                         }
                         clean[x].append(put)
                         send_to += 1

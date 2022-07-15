@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 from config import LOG, LOG_GROUP_ID, MUSIC_BOT_NAME

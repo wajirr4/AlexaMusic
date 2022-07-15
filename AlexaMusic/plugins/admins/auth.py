@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 from pyrogram import filters
@@ -17,9 +15,12 @@ from pyrogram.types import Message
 from config import BANNED_USERS, adminlist
 from strings import get_command
 from AlexaMusic import app
-from AlexaMusic.utils.database import (delete_authuser, get_authuser,
-                                       get_authuser_names,
-                                       save_authuser)
+from AlexaMusic.utils.database import (
+    delete_authuser,
+    get_authuser,
+    get_authuser_names,
+    save_authuser,
+)
 from AlexaMusic.utils.decorators import AdminActual, language
 from AlexaMusic.utils.formatters import int_to_alpha
 
@@ -30,10 +31,7 @@ AUTHUSERS_COMMAND = get_command("AUTHUSERS_COMMAND")
 
 
 @app.on_message(
-    filters.command(AUTH_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(AUTH_COMMAND) & filters.group & ~filters.edited & ~BANNED_USERS
 )
 @AdminActual
 async def auth(client, message: Message, _):
@@ -97,10 +95,7 @@ async def auth(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(UNAUTH_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(UNAUTH_COMMAND) & filters.group & ~filters.edited & ~BANNED_USERS
 )
 @AdminActual
 async def unauthusers(client, message: Message, _):
@@ -135,10 +130,7 @@ async def unauthusers(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(AUTHUSERS_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(AUTHUSERS_COMMAND) & filters.group & ~filters.edited & ~BANNED_USERS
 )
 @language
 async def authusers(client, message: Message, _):

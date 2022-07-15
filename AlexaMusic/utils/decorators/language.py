@@ -4,17 +4,14 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
 
 
-
-
 from strings import get_string
 from AlexaMusic.misc import SUDOERS
-from AlexaMusic.utils.database import (get_lang, is_commanddelete_on,
-                                       is_maintenance)
+from AlexaMusic.utils.database import get_lang, is_commanddelete_on, is_maintenance
 
 
 def language(mystic):

@@ -5,7 +5,6 @@
 # Harshit Sharma
 
 
-
 import asyncio
 import os
 import shutil
@@ -17,15 +16,19 @@ from pyrogram.types import Message
 from AlexaMusic import app
 from AlexaMusic.misc import SUDOERS
 from config import BOT_ID, MUSIC_BOT_NAME, OWNER_ID
-from AlexaMusic.utils.database import (add_gban_user, get_served_chats, get_sudoers,
-                            is_gbanned_user, remove_gban_user)
-
+from AlexaMusic.utils.database import (
+    add_gban_user,
+    get_served_chats,
+    get_sudoers,
+    is_gbanned_user,
+    remove_gban_user,
+)
 
 
 ## Gban Module
 
 
-@app.on_message(filters.command("gban")  & SUDOERS)
+@app.on_message(filters.command("gban") & SUDOERS)
 async def ban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) < 2:
@@ -37,9 +40,7 @@ async def ban_globally(_, message):
         user = await app.get_users(user)
         from_user = message.from_user
         if user.id == from_user.id:
-            return await message.reply_text(
-                "You want to gban yourself? How Fool!"
-            )
+            return await message.reply_text("You want to gban yourself? How Fool!")
         elif user.id in SUDOERS:
             await message.reply_text("You want to block a sudo user? KIDXZ")
         else:
@@ -128,14 +129,12 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
             )
             return
 
-          
+
 @app.on_message(filters.command("ungban") & SUDOERS)
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
-            await message.reply_text(
-                "**Usage:**\n/ungban [USERNAME | USER_ID]"
-            )
+            await message.reply_text("**Usage:**\n/ungban [USERNAME | USER_ID]")
             return
         user = message.text.split(None, 1)[1]
         if "@" in user:
@@ -228,9 +227,7 @@ async def broadcast_message_pin_silent(_, message):
             sent += 1
         except Exception:
             pass
-    await message.reply_text(
-        f"**Broadcasted Message In {sent} Chats and {pin} Pins.**"
-    )
+    await message.reply_text(f"**Broadcasted Message In {sent} Chats and {pin} Pins.**")
 
 
 @app.on_message(filters.command("broadcast_pin_loud") & SUDOERS)
@@ -286,9 +283,7 @@ async def broadcast_message_pin_loud(_, message):
             sent += 1
         except Exception:
             pass
-    await message.reply_text(
-        f"**Broadcasted Message In {sent} Chats and {pin} Pins.**"
-    )
+    await message.reply_text(f"**Broadcasted Message In {sent} Chats and {pin} Pins.**")
 
 
 @app.on_message(filters.command("broadcast") & SUDOERS)

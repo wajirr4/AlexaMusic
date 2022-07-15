@@ -4,45 +4,57 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
 
 
-
-
 from pyrogram import filters
 from pyrogram.errors import MessageNotModified
-from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
-                            InlineKeyboardMarkup, Message)
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+)
 
-from config import (BANNED_USERS, CLEANMODE_DELETE_MINS,
-                    MUSIC_BOT_NAME, OWNER_ID)
+from config import BANNED_USERS, CLEANMODE_DELETE_MINS, MUSIC_BOT_NAME, OWNER_ID
 from strings import get_command
 from AlexaMusic import app
-from AlexaMusic.utils.database import (add_nonadmin_chat,
-                                       cleanmode_off, cleanmode_on,
-                                       commanddelete_off,
-                                       commanddelete_on,
-                                       get_aud_bit_name, get_authuser,
-                                       get_authuser_names,
-                                       get_playmode, get_playtype,
-                                       get_vid_bit_name,
-                                       is_cleanmode_on,
-                                       is_commanddelete_on,
-                                       is_nonadmin_chat,
-                                       is_suggestion,
-                                       remove_nonadmin_chat,
-                                       save_audio_bitrate,
-                                       save_video_bitrate,
-                                       set_playmode, set_playtype,
-                                       suggestion_off, suggestion_on)
+from AlexaMusic.utils.database import (
+    add_nonadmin_chat,
+    cleanmode_off,
+    cleanmode_on,
+    commanddelete_off,
+    commanddelete_on,
+    get_aud_bit_name,
+    get_authuser,
+    get_authuser_names,
+    get_playmode,
+    get_playtype,
+    get_vid_bit_name,
+    is_cleanmode_on,
+    is_commanddelete_on,
+    is_nonadmin_chat,
+    is_suggestion,
+    remove_nonadmin_chat,
+    save_audio_bitrate,
+    save_video_bitrate,
+    set_playmode,
+    set_playtype,
+    suggestion_off,
+    suggestion_on,
+)
 from AlexaMusic.utils.decorators.admins import ActualAdminCB
 from AlexaMusic.utils.decorators.language import language, languageCB
 from AlexaMusic.utils.inline.settings import (
-    audio_quality_markup, auth_users_markup,
-    cleanmode_settings_markup, playmode_users_markup, setting_markup,
-    video_quality_markup)
+    audio_quality_markup,
+    auth_users_markup,
+    cleanmode_settings_markup,
+    playmode_users_markup,
+    setting_markup,
+    video_quality_markup,
+)
 from AlexaMusic.utils.inline.start import private_panel
 
 ### Command
@@ -50,10 +62,7 @@ SETTINGS_COMMAND = get_command("SETTINGS_COMMAND")
 
 
 @app.on_message(
-    filters.command(SETTINGS_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(SETTINGS_COMMAND) & filters.group & ~filters.edited & ~BANNED_USERS
 )
 @language
 async def settings_mar(client, message: Message, _):
@@ -64,9 +73,7 @@ async def settings_mar(client, message: Message, _):
     )
 
 
-@app.on_callback_query(
-    filters.regex("settings_helper") & ~BANNED_USERS
-)
+@app.on_callback_query(filters.regex("settings_helper") & ~BANNED_USERS)
 @languageCB
 async def settings_cb(client, CallbackQuery, _):
     try:
@@ -83,13 +90,9 @@ async def settings_cb(client, CallbackQuery, _):
     )
 
 
-@app.on_callback_query(
-    filters.regex("settingsback_helper") & ~BANNED_USERS
-)
+@app.on_callback_query(filters.regex("settingsback_helper") & ~BANNED_USERS)
 @languageCB
-async def settings_back_markup(
-    client, CallbackQuery: CallbackQuery, _
-):
+async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
     try:
         await CallbackQuery.answer()
     except:
@@ -147,30 +150,22 @@ async def without_Admin_rights(client, CallbackQuery, _):
     command = CallbackQuery.matches[0].group(1)
     if command == "SEARCHANSWER":
         try:
-            return await CallbackQuery.answer(
-                _["setting_3"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["setting_3"], show_alert=True)
         except:
             return
     if command == "PLAYMODEANSWER":
         try:
-            return await CallbackQuery.answer(
-                _["setting_10"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["setting_10"], show_alert=True)
         except:
             return
     if command == "PLAYTYPEANSWER":
         try:
-            return await CallbackQuery.answer(
-                _["setting_11"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["setting_11"], show_alert=True)
         except:
             return
     if command == "AUTHANSWER":
         try:
-            return await CallbackQuery.answer(
-                _["setting_4"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["setting_4"], show_alert=True)
         except:
             return
     if command == "CMANSWER":
@@ -183,16 +178,12 @@ async def without_Admin_rights(client, CallbackQuery, _):
             return
     if command == "COMMANDANSWER":
         try:
-            return await CallbackQuery.answer(
-                _["setting_14"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["setting_14"], show_alert=True)
         except:
             return
     if command == "SUGGANSWER":
         try:
-            return await CallbackQuery.answer(
-                _["setting_16"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["setting_16"], show_alert=True)
         except:
             return
     if command == "CM":
@@ -209,9 +200,7 @@ async def without_Admin_rights(client, CallbackQuery, _):
         sug = None
         if await is_suggestion(CallbackQuery.message.chat.id):
             sug = True
-        buttons = cleanmode_settings_markup(
-            _, status=cle, dels=sta, sug=sug
-        )
+        buttons = cleanmode_settings_markup(_, status=cle, dels=sta, sug=sug)
     if command == "AQ":
         try:
             await CallbackQuery.answer(_["set_cb_1"], show_alert=True)
@@ -236,9 +225,7 @@ async def without_Admin_rights(client, CallbackQuery, _):
             Direct = True
         else:
             Direct = None
-        is_non_admin = await is_nonadmin_chat(
-            CallbackQuery.message.chat.id
-        )
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
             Group = True
         else:
@@ -254,9 +241,7 @@ async def without_Admin_rights(client, CallbackQuery, _):
             await CallbackQuery.answer(_["set_cb_3"], show_alert=True)
         except:
             pass
-        is_non_admin = await is_nonadmin_chat(
-            CallbackQuery.message.chat.id
-        )
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
             buttons = auth_users_markup(_, True)
         else:
@@ -273,8 +258,7 @@ async def without_Admin_rights(client, CallbackQuery, _):
 
 
 @app.on_callback_query(
-    filters.regex(pattern=r"^(LQA|MQA|HQA|LQV|MQV|HQV)$")
-    & ~BANNED_USERS
+    filters.regex(pattern=r"^(LQA|MQA|HQA|LQV|MQV|HQV)$") & ~BANNED_USERS
 )
 @ActualAdminCB
 async def aud_vid_cb(client, CallbackQuery, _):
@@ -287,27 +271,19 @@ async def aud_vid_cb(client, CallbackQuery, _):
         await save_audio_bitrate(CallbackQuery.message.chat.id, "Low")
         buttons = audio_quality_markup(_, low=True)
     if command == "MQA":
-        await save_audio_bitrate(
-            CallbackQuery.message.chat.id, "Medium"
-        )
+        await save_audio_bitrate(CallbackQuery.message.chat.id, "Medium")
         buttons = audio_quality_markup(_, medium=True)
     if command == "HQA":
-        await save_audio_bitrate(
-            CallbackQuery.message.chat.id, "High"
-        )
+        await save_audio_bitrate(CallbackQuery.message.chat.id, "High")
         buttons = audio_quality_markup(_, high=True)
     if command == "LQV":
         await save_video_bitrate(CallbackQuery.message.chat.id, "Low")
         buttons = video_quality_markup(_, low=True)
     if command == "MQV":
-        await save_video_bitrate(
-            CallbackQuery.message.chat.id, "Medium"
-        )
+        await save_video_bitrate(CallbackQuery.message.chat.id, "Medium")
         buttons = video_quality_markup(_, medium=True)
     if command == "HQV":
-        await save_video_bitrate(
-            CallbackQuery.message.chat.id, "High"
-        )
+        await save_video_bitrate(CallbackQuery.message.chat.id, "High")
         buttons = video_quality_markup(_, high=True)
     try:
         return await CallbackQuery.edit_message_reply_markup(
@@ -319,18 +295,14 @@ async def aud_vid_cb(client, CallbackQuery, _):
 
 # Play Mode Settings
 @app.on_callback_query(
-    filters.regex(
-        pattern=r"^(|MODECHANGE|CHANNELMODECHANGE|PLAYTYPECHANGE)$"
-    )
+    filters.regex(pattern=r"^(|MODECHANGE|CHANNELMODECHANGE|PLAYTYPECHANGE)$")
     & ~BANNED_USERS
 )
 @ActualAdminCB
 async def playmode_ans(client, CallbackQuery, _):
     command = CallbackQuery.matches[0].group(1)
     if command == "CHANNELMODECHANGE":
-        is_non_admin = await is_nonadmin_chat(
-            CallbackQuery.message.chat.id
-        )
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
             await add_nonadmin_chat(CallbackQuery.message.chat.id)
             Group = None
@@ -355,18 +327,12 @@ async def playmode_ans(client, CallbackQuery, _):
             pass
         playmode = await get_playmode(CallbackQuery.message.chat.id)
         if playmode == "Direct":
-            await set_playmode(
-                CallbackQuery.message.chat.id, "Inline"
-            )
+            await set_playmode(CallbackQuery.message.chat.id, "Inline")
             Direct = None
         else:
-            await set_playmode(
-                CallbackQuery.message.chat.id, "Direct"
-            )
+            await set_playmode(CallbackQuery.message.chat.id, "Direct")
             Direct = True
-        is_non_admin = await is_nonadmin_chat(
-            CallbackQuery.message.chat.id
-        )
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
             Group = True
         else:
@@ -387,18 +353,14 @@ async def playmode_ans(client, CallbackQuery, _):
             await set_playtype(CallbackQuery.message.chat.id, "Admin")
             Playtype = False
         else:
-            await set_playtype(
-                CallbackQuery.message.chat.id, "Everyone"
-            )
+            await set_playtype(CallbackQuery.message.chat.id, "Everyone")
             Playtype = True
         playmode = await get_playmode(CallbackQuery.message.chat.id)
         if playmode == "Direct":
             Direct = True
         else:
             Direct = None
-        is_non_admin = await is_nonadmin_chat(
-            CallbackQuery.message.chat.id
-        )
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
             Group = True
         else:
@@ -413,37 +375,27 @@ async def playmode_ans(client, CallbackQuery, _):
 
 
 # Auth Users Settings
-@app.on_callback_query(
-    filters.regex(pattern=r"^(AUTH|AUTHLIST)$") & ~BANNED_USERS
-)
+@app.on_callback_query(filters.regex(pattern=r"^(AUTH|AUTHLIST)$") & ~BANNED_USERS)
 @ActualAdminCB
 async def authusers_mar(client, CallbackQuery, _):
     command = CallbackQuery.matches[0].group(1)
     if command == "AUTHLIST":
-        _authusers = await get_authuser_names(
-            CallbackQuery.message.chat.id
-        )
+        _authusers = await get_authuser_names(CallbackQuery.message.chat.id)
         if not _authusers:
             try:
-                return await CallbackQuery.answer(
-                    _["setting_5"], show_alert=True
-                )
+                return await CallbackQuery.answer(_["setting_5"], show_alert=True)
             except:
                 return
         else:
             try:
-                await CallbackQuery.answer(
-                    _["set_cb_7"], show_alert=True
-                )
+                await CallbackQuery.answer(_["set_cb_7"], show_alert=True)
             except:
                 pass
             j = 0
             await CallbackQuery.edit_message_text(_["auth_6"])
             msg = _["auth_7"]
             for note in _authusers:
-                _note = await get_authuser(
-                    CallbackQuery.message.chat.id, note
-                )
+                _note = await get_authuser(CallbackQuery.message.chat.id, note)
                 user_id = _note["auth_user_id"]
                 admin_id = _note["admin_id"]
                 admin_name = _note["admin_name"]
@@ -454,9 +406,7 @@ async def authusers_mar(client, CallbackQuery, _):
                 except Exception:
                     continue
                 msg += f"{j}➤ {user}[`{user_id}`]\n"
-                msg += (
-                    f"   {_['auth_8']} {admin_name}[`{admin_id}`]\n\n"
-                )
+                msg += f"   {_['auth_8']} {admin_name}[`{admin_id}`]\n\n"
             upl = InlineKeyboardMarkup(
                 [
                     [
@@ -471,9 +421,7 @@ async def authusers_mar(client, CallbackQuery, _):
                 ]
             )
             try:
-                return await CallbackQuery.edit_message_text(
-                    msg, reply_markup=upl
-                )
+                return await CallbackQuery.edit_message_text(msg, reply_markup=upl)
             except MessageNotModified:
                 return
     try:
@@ -481,9 +429,7 @@ async def authusers_mar(client, CallbackQuery, _):
     except:
         pass
     if command == "AUTH":
-        is_non_admin = await is_nonadmin_chat(
-            CallbackQuery.message.chat.id
-        )
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
             await add_nonadmin_chat(CallbackQuery.message.chat.id)
             buttons = auth_users_markup(_)
@@ -502,9 +448,7 @@ async def authusers_mar(client, CallbackQuery, _):
 
 
 @app.on_callback_query(
-    filters.regex(
-        pattern=r"^(CLEANMODE|COMMANDELMODE|SUGGESTIONCHANGE)$"
-    )
+    filters.regex(pattern=r"^(CLEANMODE|COMMANDELMODE|SUGGESTIONCHANGE)$")
     & ~BANNED_USERS
 )
 @ActualAdminCB
@@ -527,9 +471,7 @@ async def cleanmode_mark(client, CallbackQuery, _):
         else:
             await cleanmode_on(CallbackQuery.message.chat.id)
             cle = True
-        buttons = cleanmode_settings_markup(
-            _, status=cle, dels=sta, sug=sug
-        )
+        buttons = cleanmode_settings_markup(_, status=cle, dels=sta, sug=sug)
         return await CallbackQuery.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(buttons)
         )
@@ -546,9 +488,7 @@ async def cleanmode_mark(client, CallbackQuery, _):
         else:
             await commanddelete_on(CallbackQuery.message.chat.id)
             sta = True
-        buttons = cleanmode_settings_markup(
-            _, status=cle, dels=sta, sug=sug
-        )
+        buttons = cleanmode_settings_markup(_, status=cle, dels=sta, sug=sug)
     if command == "SUGGESTIONCHANGE":
         cle = None
         sta = None
@@ -562,9 +502,7 @@ async def cleanmode_mark(client, CallbackQuery, _):
         else:
             await suggestion_on(CallbackQuery.message.chat.id)
             sug = True
-        buttons = cleanmode_settings_markup(
-            _, status=cle, dels=sta, sug=sug
-        )
+        buttons = cleanmode_settings_markup(_, status=cle, dels=sta, sug=sug)
     try:
         return await CallbackQuery.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(buttons)

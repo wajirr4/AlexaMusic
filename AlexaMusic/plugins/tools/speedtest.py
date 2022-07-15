@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 import asyncio
@@ -60,8 +58,6 @@ async def speedtest_function(client, message):
 **__sᴩᴏɴsᴏʀ:__** {result['server']['sponsor']}
 **__ʟᴀᴛᴇɴᴄʏ:__** {result['server']['latency']}  
 **__ᴩɪɴɢ:__** {result['ping']}"""
-    msg = await app.send_photo(
-        chat_id=message.chat.id, photo=path, caption=output
-    )
+    msg = await app.send_photo(chat_id=message.chat.id, photo=path, caption=output)
     os.remove(path)
     await m.delete()

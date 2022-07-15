@@ -4,10 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
 
 
 import os
@@ -21,11 +20,7 @@ async def auto_clean(popped):
         autoclean.remove(rem)
         count = autoclean.count(rem)
         if count == 0:
-            if (
-                "vid_" not in rem
-                or "live_" not in rem
-                or "index_" not in rem
-            ):
+            if "vid_" not in rem or "live_" not in rem or "index_" not in rem:
                 try:
                     os.remove(rem)
                 except:

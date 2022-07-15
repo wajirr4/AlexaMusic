@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © YukkiAlexa
-
-
 
 
 from pyrogram import filters
@@ -26,10 +24,7 @@ PAUSE_COMMAND = get_command("PAUSE_COMMAND")
 
 
 @app.on_message(
-    filters.command(PAUSE_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(PAUSE_COMMAND) & filters.group & ~filters.edited & ~BANNED_USERS
 )
 @AdminRightsCheck
 async def pause_admin(cli, message: Message, _, chat_id):
@@ -39,6 +34,4 @@ async def pause_admin(cli, message: Message, _, chat_id):
         return await message.reply_text(_["admin_1"])
     await music_off(chat_id)
     await Alexa.pause_stream(chat_id)
-    await message.reply_text(
-        _["admin_2"].format(message.from_user.mention)
-    )
+    await message.reply_text(_["admin_2"].format(message.from_user.mention))

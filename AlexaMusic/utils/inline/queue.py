@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 from typing import Union
@@ -54,9 +52,7 @@ def queue_markup(
             ),
         ],
     ]
-    upl = InlineKeyboardMarkup(
-        not_dur if DURATION == "Unknown" else dur
-    )
+    upl = InlineKeyboardMarkup(not_dur if DURATION == "Unknown" else dur)
     return upl
 
 

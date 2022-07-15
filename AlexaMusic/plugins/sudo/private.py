@@ -4,10 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
 
 
 from pyrogram import filters
@@ -17,10 +16,12 @@ import config
 from strings import get_command
 from AlexaMusic import app
 from AlexaMusic.misc import SUDOERS
-from AlexaMusic.utils.database import (add_private_chat,
-                                       get_private_served_chats,
-                                       is_served_private_chat,
-                                       remove_private_chat)
+from AlexaMusic.utils.database import (
+    add_private_chat,
+    get_private_served_chats,
+    is_served_private_chat,
+    remove_private_chat,
+)
 from AlexaMusic.utils.decorators.language import language
 
 AUTHORIZE_COMMAND = get_command("AUTHORIZE_COMMAND")
