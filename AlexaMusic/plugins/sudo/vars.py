@@ -4,10 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
 
 
 import asyncio
@@ -26,9 +25,7 @@ VARS_COMMAND = get_command("VARS_COMMAND")
 
 @app.on_message(filters.command(VARS_COMMAND) & SUDOERS)
 async def varsFunc(client, message):
-    mystic = await message.reply_text(
-        "ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ... ɢᴇᴛᴛɪɴɢ ʏᴏᴜʀ ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs..."
-    )
+    mystic = await message.reply_text("ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ... ɢᴇᴛᴛɪɴɢ ʏᴏᴜʀ ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs...")
     v_limit = await get_video_limit()
     bot_name = config.MUSIC_BOT_NAME
     up_r = f"[ʀᴇᴩᴏ]({config.UPSTREAM_REPO})"
@@ -79,10 +76,7 @@ async def varsFunc(client, message):
         token = "ɴᴏ"
     else:
         token = "ʏᴇs"
-    if (
-        not config.SPOTIFY_CLIENT_ID
-        and not config.SPOTIFY_CLIENT_SECRET
-    ):
+    if not config.SPOTIFY_CLIENT_ID and not config.SPOTIFY_CLIENT_SECRET:
         sotify = "ɴᴏ"
     else:
         sotify = "ʏᴇs"

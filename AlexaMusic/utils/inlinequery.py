@@ -4,14 +4,12 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
 
 
-
-from pyrogram.types import (InlineQueryResultArticle,
-                            InputTextMessageContent)
+from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
 
 answer = []
 

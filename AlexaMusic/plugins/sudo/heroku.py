@@ -4,10 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
 
 
 import asyncio
@@ -29,9 +28,11 @@ import config
 from strings import get_command
 from AlexaMusic import app
 from AlexaMusic.misc import HAPP, SUDOERS, XCB
-from AlexaMusic.utils.database import (get_active_chats,
-                                       remove_active_chat,
-                                       remove_active_video_chat)
+from AlexaMusic.utils.database import (
+    get_active_chats,
+    remove_active_chat,
+    remove_active_video_chat,
+)
 from AlexaMusic.utils.decorators.language import language
 from AlexaMusic.utils.pastebin import Alexabin
 
@@ -106,9 +107,7 @@ async def varget_(client, message, _):
         if not output:
             await message.reply_text(_["heroku_4"])
         else:
-            return await message.reply_text(
-                f"**{check_var}:** `{str(output)}`"
-            )
+            return await message.reply_text(f"**{check_var}:** `{str(output)}`")
 
 
 @app.on_message(filters.command(DELVAR_COMMAND) & SUDOERS)
@@ -242,28 +241,17 @@ async def update_(client, message, _):
     os.system(to_exc)
     await asyncio.sleep(7)
     verification = ""
-    REPO_ = repo.remotes.origin.url.split(".git")[
-        0
-    ]  # main git repository
-    for checks in repo.iter_commits(
-        f"HEAD..origin/{config.UPSTREAM_BRANCH}"
-    ):
+    REPO_ = repo.remotes.origin.url.split(".git")[0]  # main git repository
+    for checks in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}"):
         verification = str(checks.count())
     if verification == "":
         return await response.edit("ʙᴏᴛ ɪs ᴜᴩ-ᴛᴏ-ᴅᴀᴛᴇ ᴡɪᴛʜ ᴜᴩsᴛʀᴇᴀᴍ ʀᴇᴩᴏ !")
     updates = ""
     ordinal = lambda format: "%d%s" % (
         format,
-        "tsnrhtdd"[
-            (format // 10 % 10 != 1)
-            * (format % 10 < 4)
-            * format
-            % 10 :: 4
-        ],
+        "tsnrhtdd"[(format // 10 % 10 != 1) * (format % 10 < 4) * format % 10 :: 4],
     )
-    for info in repo.iter_commits(
-        f"HEAD..origin/{config.UPSTREAM_BRANCH}"
-    ):
+    for info in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}"):
         updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ ᴄᴏᴍᴍɪᴛᴇᴅ ᴏɴ:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
     _update_response_ = "<b>ᴀ ɴᴇᴡ ᴜᴩᴅᴀᴛᴇ ɪs ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛʜᴇ ʙᴏᴛ !</b>\n\n➣ ᴩᴜsʜɪɴɢ ᴜᴩᴅᴀᴛᴇs ɴᴏᴡ</code>\n\n**<u>ᴜᴩᴅᴀᴛᴇs:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
@@ -273,9 +261,7 @@ async def update_(client, message, _):
             f"<b>ᴀ ɴᴇᴡ ᴜᴩᴅᴀᴛᴇ ɪs ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛʜᴇ ʙᴏᴛ !</b>\n\n➣ ᴩᴜsʜɪɴɢ ᴜᴩᴅᴀᴛᴇs ɴᴏᴡ</code>\n\n**<u>ᴜᴩᴅᴀᴛᴇs:</u>**\n\n[ᴄʜᴇᴄᴋ ᴜᴩᴅᴀᴛᴇs]({url})"
         )
     else:
-        nrs = await response.edit(
-            _final_updates_, disable_web_page_preview=True
-        )
+        nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
     os.system("git stash &> /dev/null && git pull")
     if await is_heroku():
         try:

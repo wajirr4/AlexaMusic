@@ -4,10 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © YUKKI
-
 
 
 import asyncio
@@ -16,15 +15,12 @@ from datetime import datetime
 import config
 from AlexaMusic import app
 from AlexaMusic.core.call import Alexa, autoend
-from AlexaMusic.utils.database import (get_client, is_active_chat,
-                                       is_autoend)
+from AlexaMusic.utils.database import get_client, is_active_chat, is_autoend
 
 
 async def auto_leave():
     if config.AUTO_LEAVING_ASSISTANT == str(True):
-        while not await asyncio.sleep(
-            config.AUTO_LEAVE_ASSISTANT_TIME
-        ):
+        while not await asyncio.sleep(config.AUTO_LEAVE_ASSISTANT_TIME):
             from AlexaMusic.core.userbot import assistants
 
             for num in assistants:
@@ -44,9 +40,7 @@ async def auto_leave():
                             ):
                                 if not await is_active_chat(chat_id):
                                     try:
-                                        await client.leave_chat(
-                                            chat_id
-                                        )
+                                        await client.leave_chat(chat_id)
                                     except:
                                         continue
                 except:

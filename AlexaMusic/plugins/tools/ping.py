@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 from datetime import datetime
@@ -28,10 +26,7 @@ PING_COMMAND = get_command("PING_COMMAND")
 
 
 @app.on_message(
-    filters.command(PING_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(PING_COMMAND) & filters.group & ~filters.edited & ~BANNED_USERS
 )
 @language
 async def ping_com(client, message: Message, _):
@@ -44,7 +39,5 @@ async def ping_com(client, message: Message, _):
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(
-        _["ping_2"].format(
-            resp, MUSIC_BOT_NAME, UP, RAM, CPU, DISK, pytgping
-        )
+        _["ping_2"].format(resp, MUSIC_BOT_NAME, UP, RAM, CPU, DISK, pytgping)
     )

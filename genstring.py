@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 import asyncio
@@ -26,7 +24,9 @@ i = c(":memory:", api_id=API_ID, api_hash=API_HASH)
 async def main():
     await i.start()
     ss = await i.export_session_string()
-    print("\nHERE IS YOUR PYROGRAM STRING SESSION, COPY IT, DON'T SHARE IT WITH YOUR GF !\n")
+    print(
+        "\nHERE IS YOUR PYROGRAM STRING SESSION, COPY IT, DON'T SHARE IT WITH YOUR GF !\n"
+    )
     print(f"\n{ss}\n")
 
 

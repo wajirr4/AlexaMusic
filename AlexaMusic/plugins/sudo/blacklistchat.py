@@ -4,10 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
 
 
 from pyrogram import filters
@@ -17,9 +16,7 @@ from config import BANNED_USERS
 from strings import get_command
 from AlexaMusic import app
 from AlexaMusic.misc import SUDOERS
-from AlexaMusic.utils.database import (blacklist_chat,
-                                       blacklisted_chats,
-                                       whitelist_chat)
+from AlexaMusic.utils.database import blacklist_chat, blacklisted_chats, whitelist_chat
 from AlexaMusic.utils.decorators.language import language
 
 # Commands
@@ -62,9 +59,7 @@ async def white_funciton(client, message: Message, _):
     await message.reply_text("sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.")
 
 
-@app.on_message(
-    filters.command(BLACKLISTEDCHAT_COMMAND) & ~BANNED_USERS
-)
+@app.on_message(filters.command(BLACKLISTEDCHAT_COMMAND) & ~BANNED_USERS)
 @language
 async def all_chats(client, message: Message, _):
     text = _["black_7"]

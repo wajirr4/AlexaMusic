@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 import re
@@ -26,10 +24,8 @@ class SpotifyAPI:
         self.client_id = config.SPOTIFY_CLIENT_ID
         self.client_secret = config.SPOTIFY_CLIENT_SECRET
         if config.SPOTIFY_CLIENT_ID and config.SPOTIFY_CLIENT_SECRET:
-            self.client_credentials_manager = (
-                SpotifyClientCredentials(
-                    self.client_id, self.client_secret
-                )
+            self.client_credentials_manager = SpotifyClientCredentials(
+                self.client_id, self.client_secret
             )
             self.spotify = spotipy.Spotify(
                 client_credentials_manager=self.client_credentials_manager

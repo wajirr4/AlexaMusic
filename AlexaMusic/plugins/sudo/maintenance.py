@@ -4,11 +4,9 @@
 
 # Kanged By © @Dr_Asad_Ali
 # Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali 
+# Owner Asad Ali
 # Harshit Sharma
 # All rights reserved. © Alisha © Alexa © Yukki
-
-
 
 
 from pyrogram import filters
@@ -17,9 +15,12 @@ from pyrogram.types import Message
 from strings import get_command, get_string
 from AlexaMusic import app
 from AlexaMusic.misc import SUDOERS
-from AlexaMusic.utils.database import (get_lang, is_maintenance,
-                                       maintenance_off,
-                                       maintenance_on)
+from AlexaMusic.utils.database import (
+    get_lang,
+    is_maintenance,
+    maintenance_off,
+    maintenance_on,
+)
 from AlexaMusic.utils.decorators.language import language
 
 # Commands
@@ -41,9 +42,7 @@ async def maintenance(client, message: Message):
     state = state.lower()
     if state == "enable":
         if await is_maintenance() is False:
-            await message.reply_text(
-                "ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ."
-            )
+            await message.reply_text("ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ.")
         else:
             await maintenance_on()
             await message.reply_text(_["maint_2"])
