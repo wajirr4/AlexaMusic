@@ -52,4 +52,9 @@ class AlexaBot(Client):
             self.name = get_me.first_name
         LOGGER(__name__).info(f"MusicBot Started as {self.name}")
 
-telethn = TelegramClient(MemorySession(), api_id=config.API_ID, api_hash=config.API_HASH,)
+
+telethn = TelegramClient(
+    MemorySession(),
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+)
