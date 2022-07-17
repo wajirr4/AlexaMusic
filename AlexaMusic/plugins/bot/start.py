@@ -280,7 +280,7 @@ async def welcome(client, message: Message):
 
 
 @app.on_message(
-    filters.command(["alive", "reload"])
+    filters.command(["alive", "alexa"])
     & filters.private
     & ~filters.group
     & ~filters.edited
