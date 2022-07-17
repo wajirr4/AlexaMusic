@@ -278,8 +278,12 @@ async def welcome(client, message: Message):
         except:
             return
 
+
 @app.on_message(
-    filters.command(["alive", "alexa"]) & filters.group & ~filters.edited & ~BANNED_USERS
+    filters.command(["alive", "alexa"])
+    & filters.group
+    & ~filters.edited
+    & ~BANNED_USERS
 )
 @language
 async def useradd(_, message: Message):
