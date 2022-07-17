@@ -10,7 +10,7 @@ from typing import Dict, List, Union
 from AlexaMusic.core.mongo import mongodb
 
 
-onoffdb = db.onoffper
+onoffdb = mongodb.onoffper
 
 
 async def is_on_off(on_off: int) -> bool:

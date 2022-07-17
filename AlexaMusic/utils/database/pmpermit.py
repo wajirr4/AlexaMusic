@@ -10,7 +10,7 @@ from typing import Dict, List, Union
 from AlexaMusic.core.mongo import mongodb
 
 
-pmpermitdb = db.permit
+pmpermitdb = mongodb.permit
 
 
 async def is_pmpermit_approved(user_id: int) -> bool:
