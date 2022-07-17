@@ -278,13 +278,10 @@ async def welcome(client, message: Message):
         except:
             return
 
-
 @app.on_message(
-    filters.command(["alive", "alexa"])
-    & filters.private
-    & ~filters.group
-    & ~filters.edited
+    filters.command(["alive", "alexa"]) & filters.group & ~filters.edited & ~BANNED_USERS
 )
+@language
 async def useradd(_, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/125f531d44a9999290cac.jpg",
