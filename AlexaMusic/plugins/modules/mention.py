@@ -13,26 +13,22 @@ from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.errors import UserNotParticipantError
 from pyrogram import Client, filters
 import config
+from AlexaMusic import app
 from pyrogram.types import Message
 
-
-client = TelegramClient(
-    "client",
-    api_id=config.API_ID,
-    api_hash=config.API_HASH,
-).start(bot_token=config.BOT_TOKEN)
 spam_chats = []
 
-
-@client.on(events.NewMessage(pattern="^/admins|/admin|@admin|@admins ?(.*)"))
+@app.on_message(filters.command(["admins", "admin"]) & ~filters.group & ~filters.edited)
 async def _(event):
     chat_id = event.chat_id
     if event.is_private:
-        return await event.respond("sᴏʀʀʏ ʏᴏᴜ ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀᴅᴍɪɴ ᴏɴʟʏ ɪɴ ɢʀᴏᴜᴘ")
+        return await event.respond(
+            "sᴏʀʀʏ ʏᴏᴜ ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀᴅᴍɪɴ ᴏɴʟʏ ɪɴ ɢʀᴏᴜᴘ"
+        )
 
     is_admin = False
     try:
-        partici_ = await client(GetParticipantRequest(event.chat_id, event.sender_id))
+        partici_ = await app(GetParticipantRequest(event.chat_id, event.sender_id))
     except UserNotParticipantError:
         is_admin = False
     else:
@@ -64,7 +60,7 @@ async def _(event):
     usrnum = 0
     usrtxt = ""
     chat = await event.get_input_chat()
-    async for x in client.iter_participants(chat, filter=ChannelParticipantsAdmins):
+    async for x in app.iter_participants(chat, filter=ChannelParticipantsAdmins):
         if not chat_id in spam_chats:
             break
         usrnum += 1
@@ -72,7 +68,7 @@ async def _(event):
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{usrtxt}\n\n{msg}"
-                await client.send_message(chat_id, txt)
+                await app.send_message(chat_id, txt)
             elif mode == "text_on_reply":
                 await msg.reply(usrtxt)
             await asyncio.sleep(2)
@@ -84,7 +80,8 @@ async def _(event):
         pass
 
 
-@client.on(events.NewMessage(pattern="^/cancel$"))
+
+@app.on_message(filters.command("cancel") & filters.group & ~filters.edited)
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
         return await event.respond("__There is no proccess on going...__")
@@ -94,7 +91,6 @@ async def cancel_spam(event):
         except:
             pass
         return await event.respond("__Stopped.__")
-
 
 # A Powerful Music And Management Bot
 # Property Of Rocks Indian Largest Chatting Group
