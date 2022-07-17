@@ -16,17 +16,19 @@ import config
 from pyrogram.types import Message
 
 
-client = TelegramClient("client", api_id=config.API_ID, api_hash=config.API_HASH,).start(bot_token=config.BOT_TOKEN)
+client = TelegramClient(
+    "client",
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+).start(bot_token=config.BOT_TOKEN)
 spam_chats = []
 
-    
+
 @client.on(events.NewMessage(pattern="^/admins|/admin|@admin|@admins ?(.*)"))
 async def _(event):
     chat_id = event.chat_id
     if event.is_private:
-        return await event.respond(
-            "sᴏʀʀʏ ʏᴏᴜ ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀᴅᴍɪɴ ᴏɴʟʏ ɪɴ ɢʀᴏᴜᴘ"
-        )
+        return await event.respond("sᴏʀʀʏ ʏᴏᴜ ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀᴅᴍɪɴ ᴏɴʟʏ ɪɴ ɢʀᴏᴜᴘ")
 
     is_admin = False
     try:
@@ -82,7 +84,6 @@ async def _(event):
         pass
 
 
-
 @client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
@@ -93,6 +94,7 @@ async def cancel_spam(event):
         except:
             pass
         return await event.respond("__Stopped.__")
+
 
 # A Powerful Music And Management Bot
 # Property Of Rocks Indian Largest Chatting Group
