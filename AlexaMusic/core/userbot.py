@@ -28,35 +28,35 @@ class Userbot(Client):
             api_hash=config.API_HASH,
             session_name=str(config.STRING1),
             no_updates=True,
-            plugins=dict(root="Alexa.Plugins.Multi-Assistant"),
+            plugins=dict(root="AlexaMusic.plugins.modules.Multi-Assistant"),
         )
         self.two = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING2),
             no_updates=True,
-            plugins=dict(root="Alexa.Plugins.Multi-Assistant"),
+            plugins=dict(root="AlexaMusic.plugins.modules.Multi-Assistant"),
         )
         self.three = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING3),
             no_updates=True,
-            plugins=dict(root="Alexa.Plugins.Multi-Assistant"),
+            plugins=dict(root="AlexaMusic.plugins.modules.Multi-Assistant"),
         )
         self.four = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING4),
             no_updates=True,
-            plugins=dict(root="Alexa.Plugins.Multi-Assistant"),
+            plugins=dict(root="AlexaMusic.plugins.modules.Multi-Assistant"),
         )
         self.five = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING5),
             no_updates=True,
-            plugins=dict(root="Alexa.Plugins.Multi-Assistant"),
+            plugins=dict(root="AlexaMusic.plugins.modules.Multi-Assistant"),
         )
 
     async def start(self):
