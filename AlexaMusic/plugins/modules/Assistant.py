@@ -9,16 +9,25 @@ from inspect import getfullargspec
 
 from pyrogram import Client, filters
 from pyrogram.raw.functions.messages import DeleteHistory
-from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
-                            InlineKeyboardMarkup, InlineQueryResultArticle,
-                            InlineQueryResultPhoto, InputTextMessageContent,
-                            Message)
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InlineQueryResultPhoto,
+    InputTextMessageContent,
+    Message,
+)
 
 from config import LOG_GROUP_ID, MUSIC_BOT_NAME
 from AlexaMusic.misc import SUDOERS
 from AlexaMusic.utils.database.onoff import is_on_off
-from AlexaMusic.utils.database.pmpermit import approve_pmpermit, disapprove_pmpermit, is_pmpermit_approved                     
-from AlexaMusic.utils.command import commandpro                           
+from AlexaMusic.utils.database.pmpermit import (
+    approve_pmpermit,
+    disapprove_pmpermit,
+    is_pmpermit_approved,
+)
+from AlexaMusic.utils.command import commandpro
 
 flood = {}
 
@@ -74,9 +83,7 @@ async def awaiting_message(client, message):
 )
 async def pm_approve(client, message):
     if not message.reply_to_message:
-        return await eor(
-            message, text="ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴀᴘᴘʀᴏᴠᴇ."
-        )
+        return await eor(message, text="ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴀᴘᴘʀᴏᴠᴇ.")
     user_id = message.reply_to_message.from_user.id
     if await is_pmpermit_approved(user_id):
         return await eor(message, text="ᴜsᴇʀ ɪs ᴀʟʀᴇᴀᴅʏ ᴀᴘᴘʀᴏᴠᴇᴅ ᴛᴏ ᴘᴍ")
@@ -93,9 +100,7 @@ async def pm_approve(client, message):
 )
 async def pm_disapprove(client, message):
     if not message.reply_to_message:
-        return await eor(
-            message, text="ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴅɪsᴀᴘᴘʀᴏᴠᴇ."
-        )
+        return await eor(message, text="ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴅɪsᴀᴘᴘʀᴏᴠᴇ.")
     user_id = message.reply_to_message.from_user.id
     if not await is_pmpermit_approved(user_id):
         await eor(message, text="ᴜsᴇʀ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀᴘᴘʀᴏᴠᴇᴅ ᴛᴏ ᴘᴍ")
@@ -134,9 +139,7 @@ async def block_user_func(client, message):
 )
 async def unblock_user_func(client, message):
     if not message.reply_to_message:
-        return await eor(
-            message, text="ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴜɴʙʟᴏᴄᴋ."
-        )
+        return await eor(message, text="ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴜɴʙʟᴏᴄᴋ.")
     user_id = message.reply_to_message.from_user.id
     await client.unblock_user(user_id)
     await eor(message, text="ɴᴏᴡ ᴜsᴇʀ ɪs ᴜɴʙʟᴏᴄᴋ")
