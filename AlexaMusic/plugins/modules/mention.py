@@ -16,7 +16,7 @@ import config
 from pyrogram.types import Message
 
 
-client = TelegramClient("client", api_id=config.API_ID, api_hash=config.API_HASH,).start(bot_token==config.BOT_TOKEN)
+client = TelegramClient("client", api_id=config.API_ID, api_hash=config.API_HASH,).start(bot_token=config.BOT_TOKEN)
 spam_chats = []
 
     
