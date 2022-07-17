@@ -8,10 +8,15 @@ from inspect import getfullargspec
 from AlexaMusic.misc import SUDOERS
 from pyrogram import Client, filters
 from pyrogram.raw.functions.messages import DeleteHistory
-from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
-                            InlineKeyboardMarkup, InlineQueryResultArticle,
-                            InlineQueryResultPhoto, InputTextMessageContent,
-                            Message)
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InlineQueryResultPhoto,
+    InputTextMessageContent,
+    Message,
+)
 
 from config import LOG_GROUP_ID, MUSIC_BOT_NAME
 from AlexaMusic.utils.database.onoff import is_on_off
