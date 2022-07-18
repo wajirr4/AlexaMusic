@@ -174,7 +174,7 @@ async def unban_globally(_, message):
 # Broadcast Message
 
 
-@app.on_message(filters.command("broadcast_pin") & SUDOERS)
+@app.on_message(filters.command("bcast_pin") & SUDOERS)
 async def broadcast_message_pin_silent(_, message):
     if not message.reply_to_message:
         pass
@@ -230,7 +230,7 @@ async def broadcast_message_pin_silent(_, message):
     await message.reply_text(f"**Broadcasted Message In {sent} Chats and {pin} Pins.**")
 
 
-@app.on_message(filters.command("broadcast_pin_loud") & SUDOERS)
+@app.on_message(filters.command("bcast_pin_loud") & SUDOERS)
 async def broadcast_message_pin_loud(_, message):
     if not message.reply_to_message:
         pass
@@ -286,7 +286,7 @@ async def broadcast_message_pin_loud(_, message):
     await message.reply_text(f"**Broadcasted Message In {sent} Chats and {pin} Pins.**")
 
 
-@app.on_message(filters.command("broadcast") & SUDOERS)
+@app.on_message(filters.command("bcast") & SUDOERS)
 async def broadcast(_, message):
     if not message.reply_to_message:
         pass
