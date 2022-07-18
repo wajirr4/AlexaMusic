@@ -6,7 +6,7 @@
 # Rocks © @Shayri_Music_Lovers
 # Owner Asad Ali
 # Harshit Sharma
-# All rights reserved. © Alexa 
+# All rights reserved. © Alexa
 
 
 import socket
