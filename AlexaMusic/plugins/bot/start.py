@@ -35,6 +35,7 @@ from AlexaMusic.utils.database import (
 )
 from AlexaMusic.utils.decorators.language import LanguageStart
 from AlexaMusic.utils.inline import help_pannel, private_panel, start_pannel
+from AlexaMusic.utils.command import command
 
 loop = asyncio.get_running_loop()
 
@@ -277,15 +278,8 @@ async def welcome(client, message: Message):
             return
         except:
             return
-
-
-@app.on_message(
-    filters.command(["alive", "alexa"])
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
-)
-@language
+        
+@app.on_message(command(["alive", "alexa"]) & filters.group & ~filters.edited & filters.private)
 async def useradd(_, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/125f531d44a9999290cac.jpg",
