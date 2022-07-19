@@ -97,7 +97,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text="💞 ᴏᴡɴᴇʀ 💞", url=f"https://t.me/Jankari_Ki_Duniya"
+                text="ᴏᴡɴᴇʀ 💞", url=f"https://t.me/Jankari_Ki_Duniya"
             ),
         ],
         [
@@ -106,7 +106,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="🌷☞︎︎︎ ᴄʜᴀᴛ ☜︎︎︎️🌷", url=f"https://t.me/Alexa_Help"
+                text="ᴀʟᴇxᴀ ᴄʜᴀᴛ 💌"", url=f"https://t.me/Alexa_Help"
             ),
         ],
     ]
