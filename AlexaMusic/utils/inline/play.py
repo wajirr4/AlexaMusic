@@ -106,7 +106,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="ᴀʟᴇxᴀ ᴄʜᴀᴛ 💌"", url=f"https://t.me/Alexa_Help"
+                text="ᴀʟᴇxᴀ ᴄʜᴀᴛ 💌", url=f"https://t.me/Alexa_Help"
             ),
         ],
     ]
