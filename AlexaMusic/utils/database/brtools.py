@@ -19,6 +19,7 @@ from protector.brdb import db, dcmdb
 
 broadcast_ids = {}
 
+
 async def main_broadcast_handler(m, db):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
