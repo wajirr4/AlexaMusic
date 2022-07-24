@@ -10,15 +10,11 @@
 
 
 import asyncio
-import os
-
 import speedtest
-import wget
 from pyrogram import filters
-
 from strings import get_command
-from AlexaMusic import app
-from AlexaMusic.misc import SUDOERS
+from YukkiMusic import app
+from YukkiMusic.misc import SUDOERS
 
 # Commands
 SPEEDTEST_COMMAND = get_command("SPEEDTEST_COMMAND")
@@ -35,17 +31,16 @@ def testspeed(m):
         test.results.share()
         result = test.results.dict()
         m = m.edit("😴 ᴜᴩʟᴏᴀᴅɪɴɢ sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs...")
-        path = wget.download(result["share"])
     except Exception as e:
         return m.edit(e)
-    return result, path
+    return result
 
 
 @app.on_message(filters.command(SPEEDTEST_COMMAND) & SUDOERS)
 async def speedtest_function(client, message):
-    m = await message.reply_text("💫 ᴛʀʏɪɴɢ ᴛᴏ ᴄʜᴇᴄᴋ ᴜᴩʟᴏᴀᴅ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅ sᴩᴇᴇᴅ...")
+    m = await message.reply_text("💫 ᴛʀʏɪɴɢ ᴛᴏ ᴄʜᴇᴄᴋ ᴜᴩʟᴏᴀᴅ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅ sᴩᴇᴇᴅ")
     loop = asyncio.get_event_loop()
-    result, path = await loop.run_in_executor(None, testspeed, m)
+    result = await loop.run_in_executor(None, testspeed, m)
     output = f"""**sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs**
     
 <u>**ᴄʟɪᴇɴᴛ:**</u>
@@ -58,6 +53,9 @@ async def speedtest_function(client, message):
 **__sᴩᴏɴsᴏʀ:__** {result['server']['sponsor']}
 **__ʟᴀᴛᴇɴᴄʏ:__** {result['server']['latency']}  
 **__ᴩɪɴɢ:__** {result['ping']}"""
-    msg = await app.send_photo(chat_id=message.chat.id, photo=path, caption=output)
-    os.remove(path)
+    msg = await app.send_photo(
+        chat_id=message.chat.id, 
+        photo=result["share"], 
+        caption=output
+    )
     await m.delete()
