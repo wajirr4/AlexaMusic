@@ -280,6 +280,7 @@ async def welcome(client, message: Message):
         except:
             return
 
+
 @app.on_message(commandpro(["/alive", "Alexa"]) & ~filters.edited)
 async def start(client: Client, message: Message):
     await message.reply_photo(

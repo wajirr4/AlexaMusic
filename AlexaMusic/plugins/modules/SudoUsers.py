@@ -308,9 +308,7 @@ async def broadcast(_, message):
         await message.reply_text(f"**Broadcasted Message In {sent} Chats.**")
         return
     if len(message.command) < 2:
-        await message.reply_text(
-            "**Usage**:\n/bcast [MESSAGE] or [Reply to a Message]"
-        )
+        await message.reply_text("**Usage**:\n/bcast [MESSAGE] or [Reply to a Message]")
         return
     text = message.text.split(None, 1)[1]
     sent = 0
