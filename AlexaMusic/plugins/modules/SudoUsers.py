@@ -205,7 +205,7 @@ async def broadcast_message_pin_silent(_, message):
         return
     if len(message.command) < 2:
         await message.reply_text(
-            "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            "**Usage**:\n/bcast_pin [MESSAGE] or [Reply to a Message]"
         )
         return
     text = message.text.split(None, 1)[1]
@@ -261,7 +261,7 @@ async def broadcast_message_pin_loud(_, message):
         return
     if len(message.command) < 2:
         await message.reply_text(
-            "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            "**Usage**:\n/bcast_pin_loud [MESSAGE] or [Reply to a Message]"
         )
         return
     text = message.text.split(None, 1)[1]
@@ -309,7 +309,7 @@ async def broadcast(_, message):
         return
     if len(message.command) < 2:
         await message.reply_text(
-            "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            "**Usage**:\n/bcast [MESSAGE] or [Reply to a Message]"
         )
         return
     text = message.text.split(None, 1)[1]
