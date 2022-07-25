@@ -1,3 +1,14 @@
+#
+# Copyright (C) 2021-2022 by Alexa_Help@Github, < https://github.com/Jankarikiduniya >.
+# A Powerful Music Bot Property Of Rocks Indian Largest Chatting Group
+
+# Kanged By © @Dr_Asad_Ali
+# Rocks © @Shayri_Music_Lovers
+# Owner Asad Ali
+# Harshit Sharma
+# All rights reserved. © Alisha © Alexa © Yukki
+
+
 import random
 import string
 from ast import ExceptHandler
@@ -12,7 +23,7 @@ from config import BANNED_USERS, lyrical
 from strings import get_command
 from AlexaMusic import (Apple, Resso, SoundCloud, Spotify, Telegram,
                         YouTube, app)
-from AlexaMusic.core.call import Logi
+from AlexaMusic.core.call import Alexa
 from AlexaMusic.utils import seconds_to_min, time_to_seconds
 from AlexaMusic.utils.channelplay import get_channeplayCB
 from AlexaMusic.utils.database import is_video_allowed
@@ -326,7 +337,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await Logi.stream_call(url)
+                await Alexa.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(
                     "ᴛʜᴇʀᴇ's ᴀɴ ᴇʀʀᴏʀ ɪɴ ᴛʜᴇ ʙᴏᴛ, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴛᴏ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ ᴀs sᴏᴏɴ ᴀs ᴩᴏssɪʙʟᴇ."
@@ -590,7 +601,7 @@ async def anonymous_check(client, CallbackQuery):
 
 
 @app.on_callback_query(
-    filters.regex("LogiPlaylists") & ~BANNED_USERS
+    filters.regex("AlexaPlaylists") & ~BANNED_USERS
 )
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
